@@ -1,0 +1,213 @@
+@import "react-toastify/dist/ReactToastify.css";
+@import "react-modal-video/css/modal-video.css";
+@import "swiper/css/bundle";
+@import "aos/dist/aos.css";
+
+@import "../../public/assets/css/animate.min.css";
+@import "../../public/assets/css/aos.css";
+@import "../../public/assets/css/bootstrap.min.css";
+@import "../../public/assets/css/default-icons.css";
+@import "../../public/assets/css/flaticon-skillgro-new.css";
+@import "../../public/assets/css/flaticon-skillgro.css";
+@import "../../public/assets/css/fontawesome-all.min.css";
+@import "../../public/assets/css/spacing.css";
+@import "../../public/assets/css/plyr.css";
+@import "../../public/assets/css/tg-cursor.css";
+@import "../../public/assets/scss/main.scss";
+
+// User Profile Styles
+.user-profile__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--primary-color, #6c63ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.08);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color, #6c63ff);
+  transition: box-shadow 0.2s;
+}
+
+.user-profile__wrapper:focus .user-avatar,
+.user-profile__wrapper:active .user-avatar,
+.user-profile__wrapper:hover .user-avatar {
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.15);
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  min-width: 240px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(60, 72, 100, 0.12);
+  padding: 1rem 0 0.5rem 0;
+  z-index: 1000;
+  display: block;
+  animation: fadeIn 0.2s;
+}
+
+.user-info {
+  padding: 0 1.5rem 0.5rem 1.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 0.5rem;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 600;
+  color: #22223b;
+  margin-bottom: 2px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  background: #4CAF50;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid #fff;
+}
+
+.status-label {
+  color: #888;
+  font-weight: 400;
+}
+
+.status-online {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.settings-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem 0.5rem 1.5rem;
+  background: none;
+  border: none;
+  color: #22223b;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.settings-btn:hover {
+  background: rgba(108, 99, 255, 0.07);
+  color: var(--primary-color, #6c63ff);
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--primary-color, #6c63ff);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.logout-btn:hover {
+  background: rgba(108, 99, 255, 0.07);
+  color: #22223b;
+}
+
+.logout-btn i, .settings-btn i {
+  font-size: 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Mobile styles */
+@media (max-width: 991px) {
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .avatar-initial {
+    font-size: 16px;
+  }
+  .online-dot {
+    width: 8px;
+    height: 8px;
+  }
+  .user-dropdown {
+    min-width: 180px;
+    padding: 0.75rem 0 0.25rem 0;
+  }
+}
+
+/* Courses page UI fixes */
+.all-courses-area {
+  // Make grid items uniform height
+  .courses__grid-wrap > .col {
+    display: flex;
+  }
+
+  .courses__grid-wrap .courses__item {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .courses__grid-wrap .courses__item-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .courses__grid-wrap .courses__item-bottom {
+    margin-top: auto;
+  }
+
+  // Keep thumbnails consistent
+  .courses__item-thumb img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  // Make list items feel consistent too (without breaking layout)
+  .courses__list-wrap .courses__item-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+  }
+
+  .courses__list-wrap .courses__item-bottom {
+    margin-top: auto;
+  }
+}

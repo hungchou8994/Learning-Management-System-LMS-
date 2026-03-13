@@ -1,0 +1,125 @@
+.markdown {
+  color: #3f3f46;
+  line-height: 1.75;
+  font-size: 15px;
+
+  // Force all markdown typography to inherit Inter from wrapper (avoid global Poppins overrides)
+  // Keep code blocks as monospace via dedicated classes below.
+  &,
+  *:not(code):not(pre):not(kbd):not(samp) {
+    font-family: inherit !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #111827;
+    margin: 1.25rem 0 0.75rem;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  h5,
+  h6 {
+    color: #111827;
+    margin: 1rem 0 0.5rem;
+    line-height: 1.25;
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+
+  p {
+    margin: 0 0 0.85rem;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 0.85rem 1.25rem;
+    padding-left: 0.25rem;
+  }
+
+  li {
+    margin: 0.25rem 0;
+  }
+
+  a {
+    color: #4f46e5;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  hr {
+    margin: 1.25rem 0;
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  th,
+  td {
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 0.75rem;
+    vertical-align: top;
+  }
+
+  th {
+    background: #f9fafb;
+    font-weight: 600;
+  }
+}
+
+.blockquote {
+  margin: 0.85rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #111827;
+  background: #f9fafb;
+  color: #111827;
+  border-radius: 8px;
+}
+
+.pre {
+  background: #0b1020;
+  color: #e5e7eb;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  border: 1px solid #111827;
+  margin: 0.85rem 0;
+}
+
+.codeInline {
+  background: #f3f4f6;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+.codeBlock {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+

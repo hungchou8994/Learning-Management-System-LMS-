@@ -1,0 +1,9 @@
+{
+  "/page": "app/page.js",
+  "/api/users/profiles/route": "app/api/users/profiles/route.js",
+  "/api/rooms/[roomId]/route": "app/api/rooms/[roomId]/route.js",
+  "/api/liveblocks-auth/route": "app/api/liveblocks-auth/route.js",
+  "/api/rooms/route": "app/api/rooms/route.js",
+  "/messenger/[roomId]/page": "app/messenger/[roomId]/page.js",
+  "/messenger/page": "app/messenger/page.js"
+}

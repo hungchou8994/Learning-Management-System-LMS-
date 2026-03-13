@@ -1,0 +1,455 @@
+.playgroundWrapper {
+  position: relative;
+  background: #0f172a;
+  z-index: 0;
+}
+
+.playgroundContainer {
+  min-height: calc(100vh - 180px);
+  width: 100%;
+  background: #1e293b;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.playgroundContent {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 1.5rem;
+  height: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+.editorSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.editorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.playgroundTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+// Language Selector
+.languageSelector {
+  position: relative;
+}
+
+.languageButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 140px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(96, 165, 250, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .languageIcon {
+    font-size: 1.1rem;
+  }
+
+  .languageName {
+    font-size: 0.95rem;
+    flex: 1;
+    text-align: left;
+  }
+
+  .chevron {
+    transition: transform 0.3s ease;
+    color: #94a3b8;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.languageDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow: hidden;
+  animation: dropdownSlide 0.2s ease-out;
+}
+
+.languageOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+  font-weight: 500;
+
+  &:hover {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+  }
+
+  &.active {
+    background: rgba(96, 165, 250, 0.2);
+    color: #60a5fa;
+  }
+
+  .languageIcon {
+    font-size: 1.1rem;
+  }
+
+  .languageName {
+    font-size: 0.95rem;
+    flex: 1;
+  }
+
+  .checkmark {
+    color: #22c55e;
+    font-weight: 600;
+  }
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.monacoEditorContainer {
+  flex: 1;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.ioMonacoEditorContainer {
+  flex: 1;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #0f172a;
+  min-height: 100px;
+}
+
+.runButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+
+  &:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+.resizeHandle {
+  width: 4px;
+  background: #334155;
+  margin: 0 0.5rem;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #4f46e5;
+  }
+}
+
+.resizeHandleVertical {
+  height: 4px;
+  background: #334155;
+  margin: 0.5rem 0;
+  border-radius: 2px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #4f46e5;
+  }
+}
+
+.ioColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+
+    &:hover {
+      background: #475569;
+    }
+  }
+}
+
+.inputSection,
+.expectedOutputSection,
+.outputSection {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: ">";
+      font-family: 'Fira Code', monospace;
+      color: #4f46e5;
+    }
+  }
+}
+
+.ioTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1e293b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  resize: vertical;
+
+  &:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+  }
+}
+
+.outputContent {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-y: auto;
+  min-height: 100px;
+
+  pre {
+    margin: 0;
+    color: #e2e8f0;
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+}
+
+.clearButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #334155;
+  color: #e2e8f0;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+
+  &:hover {
+    background: #475569;
+    color: #ffffff;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.error {
+  color: #ef4444;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  padding: 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 4px;
+  border-left: 3px solid #ef4444;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Mobile responsiveness
+@media (max-width: 768px) {
+  .playgroundContainer {
+    padding: 0.5rem;
+  }
+
+  .editorHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    .playgroundTitle {
+      font-size: 1.2rem;
+    }
+
+    .runButton {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .languageButton {
+    min-width: 120px;
+    padding: 0.5rem 0.75rem;
+
+    .languageName {
+      font-size: 0.9rem;
+    }
+  }
+
+  .languageDropdown {
+    min-width: 120px;
+  }
+
+  .clearButton {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .sectionHeader {
+    h3 {
+      font-size: 1rem;
+    }
+  }
+}
+
+// Very small screens
+@media (max-width: 480px) {
+  .editorHeader {
+    .languageSelector {
+      width: 100%;
+    }
+
+    .languageButton {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .runButton {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+} 

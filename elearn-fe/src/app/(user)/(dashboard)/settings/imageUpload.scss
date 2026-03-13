@@ -1,0 +1,168 @@
+.image-upload-container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+
+  .image-preview-wrapper {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    // `label` is inline by default; make it block so the clickable area covers the full preview box.
+    display: block;
+    cursor: pointer;
+
+    &.cover-wrapper {
+      height: 200px;
+    }
+  }
+
+  .image-preview {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    &.cover-preview {
+      height: 200px;
+    }
+
+    .preview-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .change-text {
+        color: white;
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+
+    &:hover {
+      .image-overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  .upload-placeholder {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.cover-placeholder {
+      height: 200px;
+    }
+
+    &:hover {
+      border-color: #007bff;
+      background: #f1f8ff;
+    }
+
+    i {
+      font-size: 48px;
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+
+    span {
+      color: #6c757d;
+      font-size: 16px;
+    }
+  }
+
+  .file-input {
+    // Use <label htmlFor="..."> as the clickable surface for reliability on Windows.
+    // Keep the native input hidden but accessible.
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .upload-info {
+    margin: 15px 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 4px;
+
+    p {
+      margin: 5px 0;
+      color: #6c757d;
+      font-size: 14px;
+    }
+  }
+
+  .upload-button {
+    width: 100%;
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    &:hover:not(:disabled) {
+      background: #0056b3;
+    }
+
+    &:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+    }
+
+    .loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 3px solid #ffffff;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+} 

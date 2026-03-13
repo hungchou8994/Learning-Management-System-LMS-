@@ -1,0 +1,197 @@
+{
+  "generatedAt": "2026-01-09T15:52:30.397Z",
+  "users": [
+    {
+      "role": "admin",
+      "username": "admin123",
+      "email": "admin123@skillgro.local",
+      "password": "Khanh9i12345."
+    },
+    {
+      "role": "manager",
+      "username": "manager_01",
+      "email": "manager_01@skillgro.local",
+      "password": "SkillGro2026A301a"
+    },
+    {
+      "role": "recruiter",
+      "username": "hr_01",
+      "email": "hr_01@skillgro.local",
+      "password": "SkillGro2026A302a"
+    },
+    {
+      "role": "accountant",
+      "username": "accountant_01",
+      "email": "accountant_01@skillgro.local",
+      "password": "SkillGro2026A303a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_001",
+      "email": "teacher_001@skillgro.local",
+      "password": "SkillGro2026T001a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_002",
+      "email": "teacher_002@skillgro.local",
+      "password": "SkillGro2026T002a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_003",
+      "email": "teacher_003@skillgro.local",
+      "password": "SkillGro2026T003a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_004",
+      "email": "teacher_004@skillgro.local",
+      "password": "SkillGro2026T004a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_005",
+      "email": "teacher_005@skillgro.local",
+      "password": "SkillGro2026T005a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_006",
+      "email": "teacher_006@skillgro.local",
+      "password": "SkillGro2026T006a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_007",
+      "email": "teacher_007@skillgro.local",
+      "password": "SkillGro2026T007a"
+    },
+    {
+      "role": "teacher",
+      "username": "teacher_008",
+      "email": "teacher_008@skillgro.local",
+      "password": "SkillGro2026T008a"
+    },
+    {
+      "role": "student",
+      "username": "student_001",
+      "email": "student_001@skillgro.local",
+      "password": "SkillGro2026S001a"
+    },
+    {
+      "role": "student",
+      "username": "student_002",
+      "email": "student_002@skillgro.local",
+      "password": "SkillGro2026S002a"
+    },
+    {
+      "role": "student",
+      "username": "student_003",
+      "email": "student_003@skillgro.local",
+      "password": "SkillGro2026S003a"
+    },
+    {
+      "role": "student",
+      "username": "student_004",
+      "email": "student_004@skillgro.local",
+      "password": "SkillGro2026S004a"
+    },
+    {
+      "role": "student",
+      "username": "student_005",
+      "email": "student_005@skillgro.local",
+      "password": "SkillGro2026S005a"
+    },
+    {
+      "role": "student",
+      "username": "student_006",
+      "email": "student_006@skillgro.local",
+      "password": "SkillGro2026S006a"
+    },
+    {
+      "role": "student",
+      "username": "student_007",
+      "email": "student_007@skillgro.local",
+      "password": "SkillGro2026S007a"
+    },
+    {
+      "role": "student",
+      "username": "student_008",
+      "email": "student_008@skillgro.local",
+      "password": "SkillGro2026S008a"
+    },
+    {
+      "role": "student",
+      "username": "student_009",
+      "email": "student_009@skillgro.local",
+      "password": "SkillGro2026S009a"
+    },
+    {
+      "role": "student",
+      "username": "student_010",
+      "email": "student_010@skillgro.local",
+      "password": "SkillGro2026S010a"
+    },
+    {
+      "role": "student",
+      "username": "student_011",
+      "email": "student_011@skillgro.local",
+      "password": "SkillGro2026S011a"
+    },
+    {
+      "role": "student",
+      "username": "student_012",
+      "email": "student_012@skillgro.local",
+      "password": "SkillGro2026S012a"
+    },
+    {
+      "role": "student",
+      "username": "student_013",
+      "email": "student_013@skillgro.local",
+      "password": "SkillGro2026S013a"
+    },
+    {
+      "role": "student",
+      "username": "student_014",
+      "email": "student_014@skillgro.local",
+      "password": "SkillGro2026S014a"
+    },
+    {
+      "role": "student",
+      "username": "student_015",
+      "email": "student_015@skillgro.local",
+      "password": "SkillGro2026S015a"
+    },
+    {
+      "role": "student",
+      "username": "student_016",
+      "email": "student_016@skillgro.local",
+      "password": "SkillGro2026S016a"
+    },
+    {
+      "role": "student",
+      "username": "student_017",
+      "email": "student_017@skillgro.local",
+      "password": "SkillGro2026S017a"
+    },
+    {
+      "role": "student",
+      "username": "student_018",
+      "email": "student_018@skillgro.local",
+      "password": "SkillGro2026S018a"
+    },
+    {
+      "role": "student",
+      "username": "student_019",
+      "email": "student_019@skillgro.local",
+      "password": "SkillGro2026S019a"
+    },
+    {
+      "role": "student",
+      "username": "student_020",
+      "email": "student_020@skillgro.local",
+      "password": "SkillGro2026S020a"
+    }
+  ]
+}

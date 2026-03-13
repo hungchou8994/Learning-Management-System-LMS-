@@ -1,0 +1,168 @@
+version: "3.8"
+
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./api-gateway/.env
+    depends_on:
+      - auth-service
+      - authz-service
+      - processing-service
+      - elearn-db
+    networks:
+      - microservices-network
+
+  auth-service:
+    build:
+      context: ./auth-service
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./auth-service/.env
+    depends_on:
+      - auth-db
+      - redis
+    networks:
+      - microservices-network
+
+  authz-service:
+    build:
+      context: ./authz-service
+      dockerfile: Dockerfile
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./authz-service/.env
+    depends_on:
+      - authz-db
+    networks:
+      - microservices-network
+
+  processing-service:
+    build:
+      context: ./processing-service
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./processing-service/.env
+    depends_on:
+      - processing-db
+      - rabbitmq
+      - redis
+      - elearn-db
+    networks:
+      - microservices-network
+
+  elearn-db:
+    build:
+      context: ./elearn-db
+      dockerfile: Dockerfile
+    ports:
+      - "3010:3010"
+    env_file:
+      - ./elearn-db/.env
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    volumes:
+      - elearn-uploads:/app/src/uploads
+    networks:
+      - microservices-network
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: elearn
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - microservices-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  auth-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: auth_db
+      POSTGRES_USER: auth_user
+      POSTGRES_PASSWORD: auth_password
+    ports:
+      - "5435:5432"
+    volumes:
+      - auth-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  authz-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: authz_db
+      POSTGRES_USER: authz_user
+      POSTGRES_PASSWORD: authz_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - authz-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  processing-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: processing_db
+      POSTGRES_USER: processing_user
+      POSTGRES_PASSWORD: processing_password
+    ports:
+      - "5434:5432"
+    volumes:
+      - processing-db-data:/var/lib/postgresql/data
+    networks:
+      - microservices-network
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - microservices-network
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
+
+volumes:
+  auth-db-data:
+  authz-db-data:
+  processing-db-data:
+  redis-data:
+  rabbitmq-data:
+  mongodb-data:
+  elearn-uploads:
